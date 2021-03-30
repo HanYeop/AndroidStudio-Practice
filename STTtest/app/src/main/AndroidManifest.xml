@@ -19,6 +19,7 @@
         </activity>
     </application>
 
+<!--    인터넷, 오디오 사용 권한 추가-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
