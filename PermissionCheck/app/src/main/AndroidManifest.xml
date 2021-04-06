@@ -18,4 +18,11 @@
         </activity>
     </application>
 
+<!--    갤러리 권한-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<!--    카메라 권한-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+
 </manifest>
