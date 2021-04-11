@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             auth?.signOut()
         }
 
+        // 데이터 저장
         saveButton.setOnClickListener {
             var resultDTO = ResultDTO()
             resultDTO.uid = auth?.currentUser?.uid
@@ -40,6 +41,11 @@ class MainActivity : AppCompatActivity() {
 
             firestore?.collection("Test")?.document()?.set(resultDTO)
             Toast.makeText(this,"저장완료",Toast.LENGTH_SHORT).show()
+        }
+
+        // 결과창으로
+        resultButton.setOnClickListener {
+            startActivity(Intent(this,ResultActivity::class.java))
         }
     }
 }
