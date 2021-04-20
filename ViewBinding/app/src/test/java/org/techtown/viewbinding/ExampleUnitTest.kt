@@ -1,4 +1,4 @@
-package com.jeongdaeri.bottomnavwithfragments
+package org.techtown.viewbinding
 
 import org.junit.Test
 
