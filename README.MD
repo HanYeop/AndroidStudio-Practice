@@ -72,6 +72,8 @@ Firebase 사용해보기
 
 구글 로그인 https://hanyeop.tistory.com/160
 
+페이스북 로그인 https://hanyeop.tistory.com/175
+
 ## SavedInstanceState
 onSaveInstanceState 활용하여 액티비티 상태 저장하기
 
