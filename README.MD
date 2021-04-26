@@ -98,6 +98,9 @@ https://hanyeop.tistory.com/170
 
 
 ## ViewModel_LiveData
+ViewModel, LiveData, DataBinding 사용하여 MVVM 패턴 구현하기
+
+https://hanyeop.tistory.com/168
 
 
 
