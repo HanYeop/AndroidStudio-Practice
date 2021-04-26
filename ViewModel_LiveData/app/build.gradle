@@ -31,6 +31,11 @@ android {
         jvmTarget = '1.8'
     }
 
+    // 데이터 바인딩
+    buildFeatures {
+        dataBinding true
+    }
+
 }
 
 dependencies {
