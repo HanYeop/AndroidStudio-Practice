@@ -21,15 +21,7 @@ class MainActivity : AppCompatActivity() {
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         binding.mainViewModel = mainViewModel
 
-        /* 관찰하여 데이터 값이 변경되면 호출, this 와 라이프사이클을 공유함
-        (Livedata는 자동으로 Observe 상태를 관리함.) */
-        mainViewModel.currentValue.observe(this, Observer {
-            Log.d("check","현재 값 : $it")
-            binding.numberText.text = it.toString()
-        })
-
-        mainViewModel.currentValue2.observe(this, Observer {
-            binding.numberText2.text = it.toString()
-        })
+        // 뷰모델을 LifeCycle 에 종속시킴, LifeCycle 동안 옵저버 역할을 함
+        binding.lifecycleOwner = this
     }
 }
