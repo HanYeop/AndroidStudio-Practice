@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.techtown.coroutine_test">
+    package="org.techtown.coroutineTest">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Coroutine_Test">
-        <activity android:name=".MainActivity">
+        <activity android:name="org.techtown.coroutineTest.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package org.techtown.coroutine_test
+package org.techtown.coroutineTest
 
 import org.junit.Test
 
