@@ -107,6 +107,11 @@ https://hanyeop.tistory.com/168
 
 https://hanyeop.tistory.com/184
 
+## ServiceTest
+서비스 활용하여 음악 재생하기
+
+https://hanyeop.tistory.com/190
+
 
 
 
