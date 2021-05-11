@@ -50,7 +50,10 @@ dependencies {
 
     def room_version = "2.3.0"
 
+    // room
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
-    implementation "androidx.room:room-ktx:$room_version"
+
+    // room 코루틴
+   implementation "androidx.room:room-ktx:$room_version"
 }
