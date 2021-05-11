@@ -112,8 +112,9 @@ https://hanyeop.tistory.com/184
 
 https://hanyeop.tistory.com/190
 
+## ForegroundServiceTest
+포그라운드 서비스 활용하여 음악 재생하기
 
-
-
+https://hanyeop.tistory.com/192
 
 
