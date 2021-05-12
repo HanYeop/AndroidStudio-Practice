@@ -122,3 +122,11 @@ Room 활용하여 데이터 저장하기
 
 https://hanyeop.tistory.com/193
 
+## ViewPagerEx
+ViewPager2와 TabLayout 사용하기
+
+https://hanyeop.tistory.com/196
+
+
+
+
