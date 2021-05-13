@@ -127,6 +127,9 @@ ViewPager2와 TabLayout 사용하기
 
 https://hanyeop.tistory.com/196
 
+## BottomNavigationEx
+BottomNavigation 와 ViewPager2 사용하기
 
+https://hanyeop.tistory.com/197
 
 
