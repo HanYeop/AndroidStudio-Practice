@@ -2,55 +2,46 @@ package org.techtown.roomtest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import kotlinx.coroutines.*
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import org.techtown.roomtest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var db : UserDatabase
+    private lateinit var userViewModel : UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
-        db = UserDatabase.getInstance(applicationContext)!!
-        fetchUserList()
+        // 뷰모델 가져오기. 뷰모델이 Application 파라미터를 받아야하기 때문에
+        // 파라미터를 포함한 Factory 객체를 생성하여 넘겨줌.
+        userViewModel = ViewModelProvider(this,UserViewModel.Factory(application)).get(UserViewModel::class.java)
+        binding.userViewModel = userViewModel
+
+        // 옵저버가 리스트의 변화를 감지
+        userViewModel.getAll().observe(this, Observer {
+            updateUserList(it)
+        })
     }
 
-    fun fetchUserList(){
+    // 리스트를 받아서 뷰에 표시해줌
+    fun updateUserList(userList : List<User>){
         var userListText = "사용자 목록"
 
         CoroutineScope(Dispatchers.Main).launch {
-
             val load = async(Dispatchers.IO) {
-                val userList = db.userDao().getAll()
                 for(i in userList){
                     userListText += "\n${i.id} ${i.name}, ${i.age}"
                 }
             }
             load.await()
             binding.textView.text = userListText
-        }
-    }
-
-    fun addUser(view : View){
-        val user = User(binding.nameEditView.text.toString(),binding.ageEditView.text.toString())
-
-        CoroutineScope(Dispatchers.IO).launch {
-            db.userDao().insert(user)
-        }
-        fetchUserList()
-    }
-
-    fun deleteAllUser(view : View){
-        CoroutineScope(Dispatchers.Main).launch {
-            val delete = async(Dispatchers.IO) {
-                db.userDao().deleteAll()
-            }
-            delete.await()
-            fetchUserList()
         }
     }
 }

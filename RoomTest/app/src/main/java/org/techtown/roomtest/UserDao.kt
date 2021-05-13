@@ -1,21 +1,22 @@
 package org.techtown.roomtest
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(user : User)
+    fun insert(user : User)
 
     @Update
-    suspend fun update(user : User)
+    fun update(user : User)
 
     @Delete
-    suspend fun delete(user : User)
+    fun delete(user : User)
 
     @Query("SELECT * FROM User")
-    suspend fun getAll() : List<User>
+    fun getAll() : LiveData<List<User>>
 
     @Query("DELETE FROM User ")
-    suspend fun deleteAll()
+    fun deleteAll()
 }
