@@ -6,10 +6,11 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.techtown.retrofit_test.model.Post
 import org.techtown.retrofit_test.repository.Repository
+import retrofit2.Response
 
 class MainViewModel(private val repository : Repository) : ViewModel() {
 
-    val myResponse : MutableLiveData<Post> = MutableLiveData()
+    val myResponse : MutableLiveData<Response<Post>> = MutableLiveData()
 
     fun getPost() {
         viewModelScope.launch {
