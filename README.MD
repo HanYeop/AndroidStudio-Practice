@@ -118,9 +118,9 @@ https://hanyeop.tistory.com/190
 https://hanyeop.tistory.com/192
 
 ## RoomTest
-Room 활용하여 데이터 저장하기
+Room 활용하여 데이터 저장하기 https://hanyeop.tistory.com/193
 
-https://hanyeop.tistory.com/193
+Room + LiveData + ViewModel + DataBinding 사용해보기 https://hanyeop.tistory.com/198 
 
 ## ViewPagerEx
 ViewPager2와 TabLayout 사용하기
