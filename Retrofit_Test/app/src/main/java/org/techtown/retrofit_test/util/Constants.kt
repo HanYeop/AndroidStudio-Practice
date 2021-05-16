@@ -1,5 +1,7 @@
 package org.techtown.retrofit_test.util
 
+
+// 상수
 class Constants {
 
     companion object{

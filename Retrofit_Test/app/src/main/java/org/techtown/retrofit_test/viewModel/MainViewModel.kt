@@ -8,6 +8,7 @@ import org.techtown.retrofit_test.model.Post
 import org.techtown.retrofit_test.repository.Repository
 import retrofit2.Response
 
+// 데이터를 처리함
 class MainViewModel(private val repository : Repository) : ViewModel() {
 
     val myResponse : MutableLiveData<Response<Post>> = MutableLiveData()
