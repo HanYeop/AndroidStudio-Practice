@@ -31,11 +31,18 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener {
             val myNumber = binding.editTextView.text.toString()
-            viewModel.getPost2(Integer.parseInt(myNumber))
+            viewModel.getCustomPosts(Integer.parseInt(myNumber))
 
-            viewModel.myResponse2.observe(this, Observer {
+            viewModel.myCustomPosts.observe(this, Observer {
                 if(it.isSuccessful){
                     binding.textView.text = it.body().toString()
+                    it.body()?.forEach{ post ->
+                        Log.d("Response",post.myUserId.toString())
+                        Log.d("Response",post.id.toString())
+                        Log.d("Response",post.title)
+                        Log.d("Response",post.body)
+                        Log.d("Response","-------------------------")
+                    }
                 }
                 else{
                     binding.textView.text = it.code().toString()
