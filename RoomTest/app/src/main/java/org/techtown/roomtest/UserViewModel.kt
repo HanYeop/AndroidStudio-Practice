@@ -2,6 +2,7 @@ package org.techtown.roomtest
 
 import android.app.Application
 import androidx.lifecycle.*
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 
 /* 뷰모델은 DB에 직접 접근하지 않아야함. Repository 에서 데이터 통신.
@@ -22,7 +23,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     fun addUser(name : String, age : String){
         val user = User(name,age)
 
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.insert(user)
         }
     }
@@ -33,7 +34,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
 
     // 유저정보 삭제시 옵저버가 감지하여 updateUserList 함수를 호출하기 때문에 자동으로 뷰 갱신
     fun deleteAll(){
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.deleteAll()
         }
     }
