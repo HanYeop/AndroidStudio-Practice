@@ -6,12 +6,10 @@ Do it! 안드로이드 앱 프로그래밍 미션 1 화면 아래쪽에 두 개�
 
 https://hanyeop.tistory.com/19
 
-
 ## Mission 3
 Do it! 안드로이드 앱 프로그래밍 미션 3 두 개의 이미지뷰에 이미지 번갈아 보여주기
 
 https://hanyeop.tistory.com/63
-
 
 ## Mission 4
 Do it! 안드로이드 앱 프로그래밍 미션 4 SMS 입력 화면 만들고 글자의 수 표시하기
@@ -133,6 +131,12 @@ https://hanyeop.tistory.com/197
 Retrofit 사용하여 서버와 http 통신하기 - (1) 기본적인 사용법 https://hanyeop.tistory.com/199
 
 Retrofit 사용하여 서버와 http 통신하기 - (2) 동적주소, 쿼리 사용하기 https://hanyeop.tistory.com/200
+
+## RecyclerViewEx
+RecyclerView 사용하기 (+ ViewBinding)
+
+https://hanyeop.tistory.com/201
+
 
 
 
