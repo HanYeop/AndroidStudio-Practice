@@ -131,6 +131,7 @@ https://hanyeop.tistory.com/197
 
 ## Retrofit_Test
 Retrofit 사용하여 서버와 http 통신하기 - (1) 기본적인 사용법 https://hanyeop.tistory.com/199
+
 Retrofit 사용하여 서버와 http 통신하기 - (2) 동적주소, 쿼리 사용하기 https://hanyeop.tistory.com/200
 
 
