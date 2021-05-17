@@ -30,6 +30,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    // 익스텐션 대신 뷰바인딩
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {

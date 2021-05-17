@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">RecyclerViewEx</string>
+
+    <string-array name="item_name">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
+        <item>Item 6</item>
+        <item>Item 7</item>
+        <item>Item 8</item>
+    </string-array>
+
+    <string-array name="item_description">
+        <item>Item 1 입니다.</item>
+        <item>Item 2 입니다.</item>
+        <item>Item 3 입니다.</item>
+        <item>Item 4 입니다.</item>
+        <item>Item 5 입니다.</item>
+        <item>Item 6 입니다.</item>
+        <item>Item 7 입니다.</item>
+        <item>Item 8 입니다.</item>
+    </string-array>
 </resources>
