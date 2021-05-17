@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener {
             val myNumber = binding.editTextView.text.toString()
-            viewModel.getCustomPosts(Integer.parseInt(myNumber))
+            viewModel.getCustomPosts2(Integer.parseInt(myNumber),"id","desc")
 
-            viewModel.myCustomPosts.observe(this, Observer {
+            viewModel.myCustomPosts2.observe(this, Observer {
                 if(it.isSuccessful){
                     binding.textView.text = it.body().toString()
                     it.body()?.forEach{ post ->
