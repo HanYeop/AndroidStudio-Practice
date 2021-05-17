@@ -9,7 +9,7 @@ import org.techtown.recyclerviewex.databinding.RecyclerviewItemBinding
 class MyAdapter(val nameList : Array<String>, val desList : Array<String>)
     : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
-    // 생성된 뷰 홀더에 값 지정
+    // 생성된 뷰 홀더에 값 지정 ( onBindViewHolder 에서 해도 됨. )
     class MyViewHolder(val binding: RecyclerviewItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(name: String, des: String) {
