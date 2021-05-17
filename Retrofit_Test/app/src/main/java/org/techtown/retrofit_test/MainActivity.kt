@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewbinding.ViewBinding
+import org.techtown.retrofit_test.adapter.MyAdapter
 import org.techtown.retrofit_test.databinding.ActivityMainBinding
 import org.techtown.retrofit_test.repository.Repository
 import org.techtown.retrofit_test.viewModel.MainViewModel
@@ -16,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel : MainViewModel
     private lateinit var binding : ActivityMainBinding
+    private val myAdapter by lazy { MyAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,32 +28,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 어댑터 연결
+        binding.recyclerView.adapter = myAdapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
 
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
 
-        val options : HashMap<String, String> = HashMap()
-        options["_sort"] = "id"
-        options["_order"] = "desc"
-
+        // 받아온 값을 리싸이클러뷰에 보여줌
         binding.button.setOnClickListener {
-            val myNumber = binding.editTextView.text.toString()
-            viewModel.getCustomPosts3(Integer.parseInt(myNumber),options)
-
-            viewModel.myCustomPosts3.observe(this, Observer {
+            viewModel.getCustomPosts2(Integer.parseInt(binding.editTextView.text.toString()),"id","asc")
+            viewModel.myCustomPosts2.observe(this, Observer {
                 if(it.isSuccessful){
-                    binding.textView.text = it.body().toString()
-                    it.body()?.forEach{ post ->
-                        Log.d("Response",post.myUserId.toString())
-                        Log.d("Response",post.id.toString())
-                        Log.d("Response",post.title)
-                        Log.d("Response",post.body)
-                        Log.d("Response","-------------------------")
-                    }
+                    myAdapter.setData(it.body()!!)
                 }
                 else{
-                    binding.textView.text = it.code().toString()
+                    Toast.makeText(this,it.code(), Toast.LENGTH_SHORT).show()
                 }
             })
         }
