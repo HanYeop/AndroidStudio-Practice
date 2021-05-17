@@ -132,6 +132,8 @@ Retrofit 사용하여 서버와 http 통신하기 - (1) 기본적인 사용법 h
 
 Retrofit 사용하여 서버와 http 통신하기 - (2) 동적주소, 쿼리 사용하기 https://hanyeop.tistory.com/200
 
+Retrofit 사용하여 서버와 http 통신하기 - (3) 통신결과 리싸이클러뷰에 연결하기 https://hanyeop.tistory.com/202
+
 ## RecyclerViewEx
 RecyclerView 사용하기 (+ ViewBinding)
 
