@@ -21,7 +21,7 @@ class CustomDialog(context: Context, Interface: CustomDialogInterface) : Dialog(
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_custom)
 
-        var addButton : Button= findViewById(R.id.add_btn)
+        var addButton : Button = findViewById(R.id.add_btn)
         var cancelButton : Button = findViewById(R.id.cancel_btn)
         var nameText : EditText = findViewById(R.id.nameEditView)
         var ageText : EditText = findViewById(R.id.ageEditView)

@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import org.techtown.roomex.data.User
 import org.techtown.roomex.data.UserViewModel
 import org.techtown.roomex.databinding.ActivityMainBinding
@@ -20,11 +22,22 @@ class MainActivity : AppCompatActivity(), CustomDialogInterface {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
+        // 뷰모델 연결
         userViewModel = ViewModelProvider(this,UserViewModel.Factory(application)).get(UserViewModel::class.java)
+
+        // 아이템을 가로로 하나씩 보여줌
+        binding.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
+        // 어댑터 연결
+        val adapter = MyAdapter()
+        binding.recyclerView.adapter = adapter
+
+        userViewModel.readAllData.observe(this, Observer {
+            adapter.setData(it)
+        })
     }
 
 
-    // Fab 클릭시
+    // Fab 클릭시 다이얼로그 띄움
     fun onFabClicked(view : View){
         val customDialog = CustomDialog(this,this)
         customDialog.show()
