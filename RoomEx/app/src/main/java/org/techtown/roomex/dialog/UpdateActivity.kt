@@ -67,5 +67,13 @@ class UpdateActivity : AppCompatActivity() {
         binding.cancelBtn.setOnClickListener {
             finish()
         }
+
+        // 삭제 버튼 클릭 시
+        binding.deleteBtn.setOnClickListener {
+            val user = User(currentId!!,currentName,currentAge!!)
+            userViewModel.deleteUser(user)
+            Toast.makeText(this, "이름 : $currentName , 나이 : $currentAge 삭제", Toast.LENGTH_SHORT).show()
+            finish()
+        }
     }
 }
