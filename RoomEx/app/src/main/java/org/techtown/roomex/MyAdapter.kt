@@ -3,7 +3,7 @@ package org.techtown.roomex
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import org.techtown.roomex.data.User
+import org.techtown.roomex.model.User
 import org.techtown.roomex.databinding.LayoutItemBinding
 
 class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {

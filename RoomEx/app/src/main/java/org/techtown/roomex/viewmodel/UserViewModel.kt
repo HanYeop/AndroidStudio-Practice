@@ -1,9 +1,12 @@
-package org.techtown.roomex.data
+package org.techtown.roomex.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.techtown.roomex.model.User
+import org.techtown.roomex.data.UserDatabase
+import org.techtown.roomex.repository.UserRepository
 
 // 뷰모델은 DB에 직접 접근하지 않아야함. Repository 에서 데이터 통신.
 class UserViewModel(application: Application) : AndroidViewModel(application) {

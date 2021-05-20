@@ -8,8 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import org.techtown.roomex.data.User
-import org.techtown.roomex.data.UserViewModel
+import org.techtown.roomex.model.User
+import org.techtown.roomex.viewmodel.UserViewModel
 import org.techtown.roomex.databinding.ActivityMainBinding
 import org.techtown.roomex.dialog.CustomDialog
 import org.techtown.roomex.dialog.CustomDialogInterface
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), CustomDialogInterface {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
         // 뷰모델 연결
-        userViewModel = ViewModelProvider(this,UserViewModel.Factory(application)).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this, UserViewModel.Factory(application)).get(UserViewModel::class.java)
 
         // 아이템을 가로로 하나씩 보여줌
         binding.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)

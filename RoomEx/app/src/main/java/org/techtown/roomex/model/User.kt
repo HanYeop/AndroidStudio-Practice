@@ -1,4 +1,4 @@
-package org.techtown.roomex.data
+package org.techtown.roomex.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
