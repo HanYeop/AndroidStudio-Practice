@@ -139,6 +139,11 @@ RecyclerView 사용하기 (+ ViewBinding)
 
 https://hanyeop.tistory.com/201
 
+## RoomEx
+Room 활용하여 데이터 읽기, 삽입, 삭제, 수정 - (1) https://hanyeop.tistory.com/204
+
+Room 활용하여 데이터 읽기, 삽입, 삭제, 수정 - (2) https://hanyeop.tistory.com/206
+
 
 
 
