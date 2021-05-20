@@ -1,10 +1,12 @@
 package org.techtown.roomex
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.techtown.roomex.model.User
 import org.techtown.roomex.databinding.LayoutItemBinding
+import org.techtown.roomex.dialog.UpdateActivity
 
 class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
@@ -21,9 +23,21 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     // 뷰 홀더에 데이터를 바인딩
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = userList[position]
-        holder.binding.idText.text = currentItem.id.toString()
-        holder.binding.nameText.text = currentItem.name
-        holder.binding.ageText.text = currentItem.age.toString()
+        val currentId = currentItem.id.toString()
+        val currentName = currentItem.name
+        val currentAge = currentItem.age.toString()
+
+        holder.binding.idText.text = currentId
+        holder.binding.nameText.text = currentName
+        holder.binding.ageText.text = currentAge
+
+        holder.binding.itemLayout.setOnClickListener {
+            val intent = Intent(it.context,UpdateActivity::class.java)
+            intent.putExtra("currentId", currentId)
+            intent.putExtra("currentName", currentName)
+            intent.putExtra("currentAge", currentAge)
+            it.context.startActivity(intent)
+        }
     }
 
     // 뷰 홀더의 개수 리턴
