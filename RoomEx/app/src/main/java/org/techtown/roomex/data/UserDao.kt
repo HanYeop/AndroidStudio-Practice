@@ -2,7 +2,9 @@ package org.techtown.roomex.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 import org.techtown.roomex.model.User
+
 
 @Dao
 interface UserDao {
@@ -18,6 +20,8 @@ interface UserDao {
    suspend fun deleteUser(user : User)
 
    @Query("SELECT * FROM user_table ORDER BY id ASC")
-   fun readAllData() : LiveData<List<User>>
+   fun readAllData() : Flow<List<User>>
 
+   @Query("SELECT * FROM user_table WHERE name LIKE :searchQuery")
+   fun searchDatabase(searchQuery : String) : Flow<List<User>>
 }

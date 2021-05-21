@@ -2,8 +2,10 @@ package org.techtown.roomex
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,9 +16,10 @@ import org.techtown.roomex.databinding.ActivityMainBinding
 import org.techtown.roomex.dialog.CustomDialog
 import org.techtown.roomex.dialog.CustomDialogInterface
 
-class MainActivity : AppCompatActivity(), CustomDialogInterface {
+class MainActivity : AppCompatActivity(), CustomDialogInterface, SearchView.OnQueryTextListener {
     private lateinit var binding : ActivityMainBinding
     private lateinit var userViewModel : UserViewModel
+    private val adapter: MyAdapter by lazy { MyAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +31,6 @@ class MainActivity : AppCompatActivity(), CustomDialogInterface {
         // 아이템을 가로로 하나씩 보여줌
         binding.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
         // 어댑터 연결
-        val adapter = MyAdapter()
         binding.recyclerView.adapter = adapter
 
         userViewModel.readAllData.observe(this, Observer {
@@ -36,6 +38,39 @@ class MainActivity : AppCompatActivity(), CustomDialogInterface {
         })
     }
 
+    // 서치뷰 생성
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean{
+        menuInflater.inflate(R.menu.main_menu,menu)
+
+        val search = menu?.findItem(R.id.menu_search)
+        val searchView = search?.actionView as? SearchView
+        searchView?.isSubmitButtonEnabled = true
+        searchView?.setOnQueryTextListener(this)
+
+        return true
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        // 서치뷰 검색버튼 클릭 시
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        // 서치뷰 텍스트 변경 시
+        if(newText != null){
+            searchDatabase(newText)
+        }
+        return true
+    }
+
+    // 검색
+    private fun searchDatabase(query: String) {
+        val searchQuery = "%$query%"
+
+        userViewModel.searchDatabase(searchQuery).observe(this, {
+            adapter.setData(it)
+        })
+    }
 
     // Fab 클릭시 다이얼로그 띄움
     fun onFabClicked(view : View){

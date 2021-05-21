@@ -17,7 +17,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     init {
         val userDao = UserDatabase.getDatabase(application)!!.userDao()
         repository = UserRepository(userDao)
-        readAllData = repository.readAllData
+        readAllData = repository.readAllData.asLiveData()
     }
 
     fun addUser(user : User){
@@ -36,6 +36,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteUser(user)
         }
+    }
+
+    fun searchDatabase(searchQuery: String): LiveData<List<User>> {
+        return repository.searchDatabase(searchQuery).asLiveData()
     }
 
     // ViewModel에 파라미터를 넘기기 위해서, 파라미터를 포함한 Factory 객체를 생성하기 위한 클래스
