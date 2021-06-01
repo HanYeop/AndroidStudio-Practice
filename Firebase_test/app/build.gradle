@@ -42,4 +42,11 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
 
+    // 푸시 라이브러리
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+    // JSON의 자바 오브젝트의 직렬화, 역직렬화
+    implementation 'com.google.code.gson:gson:2.8.5'
+    // okhttp3
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+
 }
