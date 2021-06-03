@@ -13,6 +13,9 @@ interface UserDao {
    @Insert(onConflict = OnConflictStrategy.IGNORE)
    suspend fun addUser(user : User)
 
+   @Insert
+   suspend fun addUserDb(users : List<User>)
+
    @Update
    suspend fun updateUser(user : User)
 
