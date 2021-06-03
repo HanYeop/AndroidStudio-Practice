@@ -148,6 +148,8 @@ Room 활용하여 데이터 읽기, 삽입, 삭제, 수정 - (2) https://hanyeop
 
 Room DB에서 데이터 검색하기 https://hanyeop.tistory.com/207
 
+Room DB에 데이터 미리 삽입하기 https://hanyeop.tistory.com/221
+
 
 
 
