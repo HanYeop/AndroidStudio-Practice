@@ -64,6 +64,8 @@ https://hanyeop.tistory.com/137
 ## Firebase_test
 Firebase 사용해보기
 
+❗ 사용하려면 google-services.json 파일 수정해주어야 함. (삭제된 API)
+
 연결과 로그인 https://hanyeop.tistory.com/154
 
 데이터 읽기 쓰기 https://hanyeop.tistory.com/155
