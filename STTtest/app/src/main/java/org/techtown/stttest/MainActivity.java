@@ -2,14 +2,17 @@ package org.techtown.stttest;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -60,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             public void onReadyForSpeech(Bundle params) {
                 // 말하기 시작할 준비가되면 호출
                 Toast.makeText(getApplicationContext(),"음성인식 시작",Toast.LENGTH_SHORT).show();
+                Log.d("tst5", "시작");
             }
 
             @Override
@@ -121,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Toast.makeText(getApplicationContext(), "에러 발생 : " + message,Toast.LENGTH_SHORT).show();
+                Log.d("tst5", "onError: "+message);
             }
 
             @Override
