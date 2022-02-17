@@ -34,14 +34,9 @@ class MainActivity : AppCompatActivity() {
     fun updateUserList(userList : List<User>){
         var userListText = "사용자 목록"
 
-        CoroutineScope(Dispatchers.Main).launch {
-            val load = async(Dispatchers.IO) {
-                for(i in userList){
-                    userListText += "\n${i.id} ${i.name}, ${i.age}"
-                }
-            }
-            load.await()
-            binding.textView.text = userListText
+        for(i in userList){
+            userListText += "\n${i.id} ${i.name}, ${i.age}"
         }
+        binding.textView.text = userListText
     }
 }
