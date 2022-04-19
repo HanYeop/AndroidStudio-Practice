@@ -36,17 +36,18 @@ class MainActivity : AppCompatActivity() {
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
 
+        viewModel.myCustomPosts2.observe(this, Observer {
+            if(it.isSuccessful){
+                myAdapter.setData(it.body()!!)
+            }
+            else{
+                Toast.makeText(this,it.code(), Toast.LENGTH_SHORT).show()
+            }
+        })
+
         // 받아온 값을 리싸이클러뷰에 보여줌
         binding.button.setOnClickListener {
             viewModel.getCustomPosts2(Integer.parseInt(binding.editTextView.text.toString()),"id","asc")
-            viewModel.myCustomPosts2.observe(this, Observer {
-                if(it.isSuccessful){
-                    myAdapter.setData(it.body()!!)
-                }
-                else{
-                    Toast.makeText(this,it.code(), Toast.LENGTH_SHORT).show()
-                }
-            })
         }
     }
 }
